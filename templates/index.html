@@ -51,7 +51,7 @@
                 type="file"
                 name="file"
                 id="imageUpload"
-                accept=".jpg, .jpeg"
+                accept=".jpg, .jpeg, .png"
               />
             </div>
           </form>
@@ -62,9 +62,9 @@
             </div>
             <div>
               <button
-                type="button"
+                type="submit"
                 class="btn btn-primary btn-lg"
-                id="btn-predict"
+                id="btn-predict" onclick="upload()"
               >
                 Predict!
               </button>

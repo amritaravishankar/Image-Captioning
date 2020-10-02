@@ -19,7 +19,7 @@ import re
 app = Flask(__name__)
 
 
-app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG"]
+app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG"]
 
 
 @app.route('/')
