@@ -106,7 +106,7 @@ def upload():
 				os.remove(file_path)
 				return result	
 			else:
-				return 'Error occured, Please ensure you\'re using jpeg or jpg file format.' 
+				return 'Error occurred, Please ensure you\'re using jpeg or jpg file format.' 
 		return " "
 
 if __name__ == '__main__':
