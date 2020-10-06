@@ -19,8 +19,8 @@
 <body>
     <nav class="navbar navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="{{ url_for('home') }}">ICG Demo</a>
-            <button class="btn btn-outline-secondary my-2 my-sm-0"><a href="https://github.com/maheshdhoran/image-caption-generator" type="blank"> Check Repo</a></button>
+            <a class="navbar-brand" href="{{ url_for('home') }}">IEEE Image Captioning Generator</a>
+            <button class="btn btn-outline-secondary my-2 my-sm-0"><a href="https://github.com/ritikbhatia/Image-Captioning" type="blank"> View Github Repository </a></button>
         </div>
     </nav>
     <div class="container">
@@ -30,15 +30,22 @@
        inset 0 -3em 3em rgba(0,0,0,0.1), 
              0 0  0 2px rgb(255,255,255),
              0.3em 0.3em 1em rgba(0,0,0,0.3);" >
-                  <img class="card-img-top" src="{{ url_for('static', filename='dog.jpg') }}" alt="Card image cap">
+                  <img class="card-img-top"  src="{{ url_for('static', filename='logo.png') }}" alt="Card image cap">
                   <div class="card-body">
-                    <h5 class="card-title display-4" style="font-size: 1.5rem">Image Caption Generator using ML</h5>
-                    <p class="card-text">Well some of you might say “A white dog in a grassy area”, some may say “White dog with brown spots” and yet some others might say “A dog on grass and some pink flowers”.
-        Definitely all of these captions are relevant for this image and there may be some others also. But the point I want to make is; it’s so easy for us, as human beings, to just have a glance at a picture and describe it in an appropriate language. Even a 5 year old could do this with utmost ease.
-        But, can you write a computer program that takes an image as input and produces a relevant caption as output?</p>
+                    <h5 class="card-title display-4" style="font-size: 1.5rem">IEEE Workshop Series: Image Caption Generator using ML</h5>
+                    <p class="card-text">This IEEE Workshop Series is to create a full-functioning Image Captioning web application. The user is able to upload an image and our application generates a caption for the image within seconds! This workshop makes use of Machine Learning to generate the image captions, it uses Flask as a backend framework to make API calls, and uses React as a frontend framework to create the User Interface of this web application.</p>
 
                     <p class="card-text" style="color: red;">Some key points to note: <br>1- Our model depends on the data, so, it cannot predict the words that are out of its vocabulary. We used a small dataset consisting of 8000 images. For production-level models, we need to train on datasets larger than 100,000 images which can produce better accuracy models.<br>2- Try to use outdoor images like nature scene and animals with jpg and jpeg image format to get accurate result.</p>
-                    <p class="card-text">Contact creators:<br>Pratish Varma:   <a target="blank" href="https://www.linkedin.com/in/pratish-varma-a72306197/">LinkedIn</a><br>Mahesh Dhoran: <a href="https://www.linkedin.com/in/maheshdhoran/" target="blank">LinkedIn</a></p>
+                    <p class="card-text">IEEE Main Committee - Project Creators:<br>
+                        <ul>
+                            <li>Swathi Kumar</li>
+                            <li>Ritik Bhatia</li>
+                            <li>Amrita Ravishankar</li>
+                            <li>Harsh D</li>
+                            <li>Akshit J</li>
+                            <li>Ashwin P</li>
+                        </ul>
+                    </p>
                     <a href="{{ url_for('index') }}" class="btn btn-primary">Try our Image Caption Generator</a>
                   </div>
                 </div>
