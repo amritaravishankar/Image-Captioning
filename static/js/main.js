@@ -21,35 +21,40 @@ $(document).ready(function () {
         $('.image-section').show();
         $('#btn-predict').show();
         $('#result').text('');
-        $('#result').hide();
+        // $('#result').hide();
         readURL(this);
     });
 
     // Predict
-    $('#btn-predict').click(function () {
-        var form_data = new FormData($('#upload-file')[0]);
+    // $('#btn-predict').click(function () {
+    //     var form_data = new FormData($('#upload-file')[0]);
 
-        // Show loading animation
-        $(this).hide();
-        $('.loader').show();
+    //     // Show loading animation
+    //     $(this).hide();
+    //     $('.loader').show();
 
-        // Make prediction by calling api /predict
-        $.ajax({
-            type: 'POST',
-            url: '/predict',
-            data: form_data,
-            contentType: false,
-            cache: false,
-            processData: false,
-            async: true,
-            success: function (data) {
-                // Get and display the result
-                $('.loader').hide();
-                $('#result').fadeIn(600);
-                $('#result').text(' Generated Caption:  ' + data);
-                console.log('Success!');
-            },
-        });
-    });
+    //     // Make prediction by calling api /predict
+    //     $.ajax({
+    //         url: "/predict",
+    //         type:"POST",
+    //         data: form_data,
+    //         contentType: false,
+    //         cache: false,
+    //         processData: false,
+    //         async: true,
+    //         method: 'POST',
+    //         success: function (data) {
+    //             // Get and display the result
+    //             $('.loader').hide();
+    //             $('#result').fadeIn(600);
+    //             $('#result').text(' Generated Caption:  ' + data);
+    //             console.log('Success!');
+    //         },
+    //         error:function(){
+    //             console.log(JSON.stringify(error));
+    //             console.log('sorry...');
+    //         }
+    //     });
+    // });
 
 });

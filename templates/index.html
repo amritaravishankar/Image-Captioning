@@ -51,7 +51,7 @@
                 type="file"
                 name="file"
                 id="imageUpload"
-                accept=".jpg, .jpeg, .png"
+                accept=".jpg, .jpeg, .png, .JPG, .JPEG, .PNG"
               />
             </div>
           </form>
@@ -64,8 +64,7 @@
               <button
                 type="submit"
                 class="btn btn-primary btn-lg"
-                id="btn-predict" onclick="upload()"
-              >
+                id="btn-predict" onclick= "{{ url_for('upload') }}">
                 Predict!
               </button>
             </div>

@@ -6,9 +6,11 @@ from keras.models import load_model
 from pickle import load
 import numpy as np
 from PIL import Image
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 # setting image path to the one we want to test out
-img_path = 'images/eating.jpg'
+img_path = 'images/Dog.jpeg'
 
 
 # extract features from the image

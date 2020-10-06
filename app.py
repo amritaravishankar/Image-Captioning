@@ -1,14 +1,15 @@
 from flask import Flask,render_template,url_for,request,jsonify,redirect
 from werkzeug.utils import secure_filename
 
-
-from keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
-from keras.applications.xception import Xception
-from keras.models import load_model
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.applications.xception import Xception
+from tensorflow.keras.models import load_model
 from pickle import load
 import numpy as np
 from PIL import Image
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 import tempfile
 import sys
@@ -21,19 +22,18 @@ app = Flask(__name__)
 
 app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG"]
 
-
+# render the about page
 @app.route('/')
+@app.route('/about')
 def home():
 	return render_template('home.html')
 
-
+# render the image-captioning page
 @app.route('/image')
 def index():
 	return render_template('index.html')
 
-
-
-
+# the predict function
 @app.route('/predict', methods=['POST'])
 def upload():
 	def extract_features(filename, model):
@@ -72,12 +72,14 @@ def upload():
 			if word == 'end':
 				break
 		return in_text
-	#path = 'Flicker8k_Dataset/111537222_07e56d5a30.jpg'
+	
 	max_length = 32
-	tokenizer = load(open("tokenizer.p","rb"))
-	model = load_model('models/model_9.h5')
+	tokenizer = load(open("tokenizer.p","rb")) 
+	model = load_model("models/model_9.h5")
 	xception_model = Xception(include_top=False, pooling="avg")
 
+	# function to check if the image has an extension and 
+	# if the extension belongs to the allowed image extensions
 	def allowed_image(fname):
 		if not "." in fname:
 			return False
@@ -87,27 +89,25 @@ def upload():
 		else:
 			return False
 
-
-
+	# if a post request has been made:
 	if request.method == 'POST':
-	   
-	    f = request.files['file']
-	    fname=secure_filename(f.filename)
-
-	    if allowed_image(fname):
-	    	basepath = os.path.dirname(__file__)
-	    	file_path = os.path.join(basepath, 'uploads', fname)
-	    	f.save(file_path)
-	    	photo = extract_features(file_path, xception_model)
-	    	description = generate_desc(model, tokenizer, photo, max_length)
-	    	result= description[6:-3]
-	    	if os.path.exists(file_path):
-	    		os.remove(file_path)
-	    	return result
-	    else:
-	    	return 'Error occured, Please ensure you\'re using jpeg or jpg file format.' 
-	return None
-
+		f = request.files['file']
+		print("F: ", f)
+		fname=secure_filename(f.filename)
+		print("F.filename", f.filename)
+		if allowed_image(fname):
+			basepath = os.path.dirname(__file__)
+			file_path = os.path.join(basepath, 'uploads', fname)
+			f.save(file_path)
+			photo = extract_features(file_path, xception_model)
+			description = generate_desc(model, tokenizer, photo, max_length)
+			result= description[6:-3]
+			if os.path.exists(file_path):
+				os.remove(file_path)
+				return result	
+			else:
+				return 'Error occured, Please ensure you\'re using jpeg or jpg file format.' 
+		return " "
 
 if __name__ == '__main__':
 	app.run(debug=True)
