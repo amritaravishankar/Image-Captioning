@@ -19,7 +19,7 @@
 <body>
     <nav class="navbar navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="{{ url_for('home') }}">NTU IEEE Image Caption Generator</a>
+            <a class="navbar-brand" href="{{ url_for('home') }}">Tecathlon: Image Caption Generator</a>
             <button class="btn btn-outline-secondary my-2 my-sm-0"><a href="https://github.com/ritikbhatia/Image-Captioning" type="blank"> View Github Repository </a></button>
         </div>
     </nav>
@@ -32,20 +32,8 @@
              0.3em 0.3em 1em rgba(0,0,0,0.3);" >
                   <img class="card-img-top"  src="{{ url_for('static', filename='logo.png') }}" alt="Card image cap">
                   <div class="card-body">
-                    <h5 class="card-title display-4" style="font-size: 1.5rem">NTU IEEE Workshop Series: Image Caption Generator using ML</h5>
-                    <p class="card-text">This NTU IEEE Workshop Series is to create a full-functioning Image Captioning web application. The user is able to upload an image and our application generates a caption for the image within seconds! This workshop makes use of Machine Learning to generate the image captions, it uses Flask as a backend framework to make API calls, and uses React as a frontend framework to create the User Interface of this web application.</p>
-
-                    <p class="card-text" style="color: red;">Some key points to note: <br>1- Our model depends on the data, so, it cannot predict the words that are out of its vocabulary. We used a small dataset consisting of 8000 images. For production-level models, we need to train on datasets larger than 100,000 images which can produce better accuracy models.<br>2- Try to use outdoor images like nature scene and animals with jpg and jpeg image format to get accurate result.</p>
-                    <p class="card-text">IEEE Main Committee - Project Creators:<br>
-                        <ul>
-                            <li>Swathi Kumar</li>
-                            <li>Ritik Bhatia</li>
-                            <li>Amrita Ravishankar</li>
-                            <li>Harsh D</li>
-                            <li>Akshit J</li>
-                            <li>Ashwin P</li>
-                        </ul>
-                    </p>
+                    <h5 class="card-title display-4" style="font-size: 1.5rem">Tecathlon: Image Caption Generator</h5>
+                   
                     <a href="{{ url_for('index') }}" class="btn btn-primary">Try our Image Caption Generator</a>
                   </div>
                 </div>
