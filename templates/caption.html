@@ -1,9 +1,17 @@
 <html>
     <head>
+        <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">      
         <title>Predict Page</title>
     </head>
     <body>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container">
+                <!-- mention this anchor tag as well -->
+                <a class="navbar-brand" href="{{ url_for('home') }}">Techathlon: Image Caption Generator</a>
+                <button class="btn btn-outline-secondary my-2 my-sm-0"><a href="https://github.com/ritikbhatia/Image-Captioning" type="blank"> View Github Repository </a></button>
+            </div>
+        </nav>
         <br>
         <div style="font-size: 20px; color: white; text-align: center;" >
             <h2> Caption Result </h2>

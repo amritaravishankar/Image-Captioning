@@ -24,7 +24,7 @@ app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG"]
 
 # render the about page
 @app.route('/')
-@app.route('/about')
+@app.route('/home')
 def home():
 	return render_template('home.html')
 
@@ -92,9 +92,7 @@ def upload():
 	# if a post request has been made:
 	if request.method == 'POST':
 		f = request.files['file']
-		print("F: ", f)
 		fname=secure_filename(f.filename)
-		print("F.filename", f.filename)
 		if allowed_image(fname):
 			basepath = os.path.dirname(__file__)
 			file_path = os.path.join(basepath, 'uploads', fname)
