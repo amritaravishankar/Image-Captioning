@@ -104,7 +104,7 @@ def upload():
 			result= description[6:-3]
 			if os.path.exists(file_path):
 				os.remove(file_path)
-				return result	
+				return render_template("caption.html", result=result)	
 			else:
 				return 'Error occurred, Please ensure you\'re using jpeg or jpg file format.' 
 		return " "

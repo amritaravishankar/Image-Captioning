@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">      
+        <title>Predict Page</title>
+    </head>
+    <body>
+        <br>
+        <div style="font-size: 20px; color: white; text-align: center;" >
+            <h2> Caption Result </h2>
+            <p> Your generated caption is: {{ result }} </p>  
+        </div>
+    </body>
+</html>

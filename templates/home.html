@@ -19,10 +19,13 @@
 <body>
     <nav class="navbar navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="{{ url_for('home') }}">Tecathlon: Image Caption Generator</a>
+            <!-- mention this anchor tag as well -->
+            <a class="navbar-brand" href="{{ url_for('home') }}">Techathlon: Image Caption Generator</a>
             <button class="btn btn-outline-secondary my-2 my-sm-0"><a href="https://github.com/ritikbhatia/Image-Captioning" type="blank"> View Github Repository </a></button>
         </div>
     </nav>
+
+    <!-- Explain during workshop -->
     <div class="container">
     <div class="row">
         <div class="col-lg-7 mx-auto mt-5 mb-5">
@@ -32,15 +35,15 @@
              0.3em 0.3em 1em rgba(0,0,0,0.3);" >
                   <img class="card-img-top"  src="{{ url_for('static', filename='logo.png') }}" alt="Card image cap">
                   <div class="card-body">
-                    <h5 class="card-title display-4" style="font-size: 1.5rem">Tecathlon: Image Caption Generator</h5>
-                   
+                    <h5 class="card-title display-4" style="font-size: 1.5rem">Techathlon: Image Caption Generator</h5>
+                   <!-- Live code anchor tag -->
                     <a href="{{ url_for('index') }}" class="btn btn-primary">Try our Image Caption Generator</a>
                   </div>
                 </div>
         </div>
+    </div> 
     </div>
-        
-    </div>
+    <!-- End explain -->
 </body>
 
 <footer>

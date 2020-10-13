@@ -24,7 +24,7 @@
   <body>
     <nav class="navbar navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand" href="{{ url_for('home') }}">Tecathlon: Image Caption Generator</a>
+        <a class="navbar-brand" href="{{ url_for('home') }}">Techathlon: Image Caption Generator</a>
         <button class="btn btn-outline-secondary my-2 my-sm-0">
           <a
             href="https://github.com/ritikbhatia/Image-Captioning"
@@ -38,11 +38,12 @@
     <div class="container">
       <div id="content" style="margin-top: 2em">
         <h2 class="text-center display-4" style="font-size: 2rem; color: white">
-          Tecathlon: Image Caption Generator
+          Techathlon: Image Caption Generator
         </h2>
 
+        <!-- Need to Explain this -->
         <div class="mx-auto col-lg-6 mt-5 mb-4">
-          <form id="upload-file" method="post" enctype="multipart/form-data">
+          <form id="upload-file" method="post" enctype="multipart/form-data" action="/predict">
             <div class="form-group mx-auto">
               <label for="imageUpload" class="upload-label">
                 Choose Image...
@@ -53,36 +54,29 @@
                 id="imageUpload"
                 accept=".jpg, .jpeg, .png, .JPG, .JPEG, .PNG"
               />
+              <div class="image-section" style="display: none">
+                <div class="img-preview">
+                  <div id="imagePreview"></div>
+                </div>
+                <div>
+                    <button
+                    type="submit"
+                    class="btn btn-primary btn-lg"
+                    id="btn-predict" onclick= "upload()">
+                    Predict!
+                  </button>         
+                </div>
+              </div>
             </div>
           </form>
-
-          <div class="image-section" style="display: none">
-            <div class="img-preview">
-              <div id="imagePreview"></div>
-            </div>
-            <div>
-              <form action="/predict" method="post">
-                <button
-                type="submit"
-                class="btn btn-primary btn-lg"
-                id="btn-predict" onclick= "upload()">
-                Predict!
-              </button>
-            </form>
-              
-            </div>
-          </div>
-
+        <!-- End of our explanantion -->
+          
           <div class="loader" style="display: none">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
           </div>
-
-          <h3 id="result" style="color: white; font-size: 1.4rem">
-            <span> </span>
-          </h3>
         </div>
       </div>
     </div>
