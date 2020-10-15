@@ -1,4 +1,4 @@
-from flask import Flask,render_template,url_for,request,jsonify,redirect
+from flask import Flask,render_template,url_for
 from werkzeug.utils import secure_filename
 
 from tensorflow.keras.preprocessing.text import Tokenizer
@@ -11,14 +11,9 @@ from PIL import Image
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
-import tempfile
-import sys
 import os
-import glob
-import re
 
 app = Flask(__name__)
-
 
 app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG"]
 
@@ -36,6 +31,7 @@ def index():
 # the predict function
 @app.route('/predict', methods=['POST'])
 def upload():
+	
 	# function to extract image features
 	def extract_features(filename, model):
 		try:
