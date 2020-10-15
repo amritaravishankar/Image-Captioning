@@ -22,7 +22,7 @@ app = Flask(__name__)
 
 app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG"]
 
-# render the about page
+# render the home page
 @app.route('/')
 @app.route('/home')
 def home():
@@ -36,6 +36,7 @@ def index():
 # the predict function
 @app.route('/predict', methods=['POST'])
 def upload():
+	# function to extract image features
 	def extract_features(filename, model):
 		try:
 			image = Image.open(filename)
@@ -57,7 +58,7 @@ def upload():
 				return word
 		return None
 
-
+	# function to generate the caption based on extracted features
 	def generate_desc(model, tokenizer, photo, max_length):
 		in_text = 'start'
 		for i in range(max_length):
